@@ -1,0 +1,8 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1758600852" />
+    <testcase name="test_receive" classname="test_uart_receive" file="/home/samhita/6205_labs/lab03/sim/test_uart_receive.py" lineno="18" time="5.356344223022461" sim_time_ns="989580.001" ratio_time="184749.14228749904">
+      <failure message="Test failed with RANDOM_SEED=1758600852" />
+    </testcase>
+  </testsuite>
+</testsuites>

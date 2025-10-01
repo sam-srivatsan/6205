@@ -1,0 +1,73 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
+| Date         : Wed Sep 24 18:11:18 2025
+| Host         : eecs-digital-11 running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_timing -file obj/post_route_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             4.331ns  (required time - arrival time)
+  Source:                 portb_counter/count_reg[15]/C
+                            (rising edge-triggered cell FDRE clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Destination:            audio_bram/BRAM_reg_0_1/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by gclk  {rise@0.000ns fall@4.000ns period=10.000ns})
+  Path Group:             gclk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (gclk rise@10.000ns - gclk rise@0.000ns)
+  Data Path Delay:        4.994ns  (logic 0.668ns (13.376%)  route 4.326ns (86.624%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        0.007ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.811ns = ( 14.811 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.061ns
+    Clock Pessimism Removal (CPR):    0.257ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock gclk rise edge)       0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.972     3.412    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.508 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=278, routed)         1.553     5.061    portb_counter/clk_100mhz_IBUF_BUFG
+    SLICE_X8Y87          FDRE                                         r  portb_counter/count_reg[15]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X8Y87          FDRE (Prop_fdre_C_Q)         0.518     5.579 f  portb_counter/count_reg[15]/Q
+                         net (fo=33, routed)          3.569     9.148    audio_bram/O49[15]
+    SLICE_X8Y45          LUT1 (Prop_lut1_I0_O)        0.150     9.298 r  audio_bram/BRAM_reg_0_1_ENARDEN_cooolgate_en_gate_11/O
+                         net (fo=1, routed)           0.757    10.055    audio_bram/BRAM_reg_0_1_ENARDEN_cooolgate_en_sig_2
+    RAMB36_X0Y10         RAMB36E1                                     r  audio_bram/BRAM_reg_0_1/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock gclk rise edge)      10.000    10.000 r  
+    N15                                               0.000    10.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    10.000    clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    11.370 r  clk_100mhz_IBUF_inst/O
+                         net (fo=1, routed)           1.868    13.238    clk_100mhz_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.329 r  clk_100mhz_IBUF_BUFG_inst/O
+                         net (fo=278, routed)         1.482    14.811    audio_bram/clk_100mhz_IBUF_BUFG
+    RAMB36_X0Y10         RAMB36E1                                     r  audio_bram/BRAM_reg_0_1/CLKARDCLK
+                         clock pessimism              0.257    15.068    
+                         clock uncertainty           -0.035    15.033    
+    RAMB36_X0Y10         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.647    14.386    audio_bram/BRAM_reg_0_1
+  -------------------------------------------------------------------
+                         required time                         14.386    
+                         arrival time                         -10.055    
+  -------------------------------------------------------------------
+                         slack                                  4.331    
+
+
+
+
