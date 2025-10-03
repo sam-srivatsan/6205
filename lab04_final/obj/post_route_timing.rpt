@@ -1,0 +1,90 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (lin64) Build 6140274 Wed May 21 22:58:25 MDT 2025
+| Date         : Wed Oct  1 19:16:33 2025
+| Host         : eecs-digital-10 running 64-bit Ubuntu 24.04.3 LTS
+| Command      : report_timing -file obj/post_route_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             6.032ns  (required time - arrival time)
+  Source:                 my_pong/paddle_y_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Destination:            my_pong/paddle_y_reg[3]/S
+                            (rising edge-triggered cell FDSE clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Path Group:             clk_pixel_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            13.468ns  (clk_pixel_clk_wiz_0 rise@13.468ns - clk_pixel_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        6.724ns  (logic 2.156ns (32.066%)  route 4.568ns (67.934%))
+  Logic Levels:           6  (CARRY4=1 LUT4=1 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.020ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.573ns = ( 11.895 - 13.468 ) 
+    Source Clock Delay      (SCD):    -0.977ns
+    Clock Pessimism Removal (CPR):    0.576ns
+  Clock Uncertainty:      0.168ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.329ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, routed)           1.233     2.673    mhdmicw/clk_ref_clk_wiz_0
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -6.965    -4.291 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.666    -2.625    mhdmicw/clk_pixel_clk_wiz_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096    -2.529 r  mhdmicw/clkout1_buf/O
+                         net (fo=93, routed)          1.552    -0.977    my_pong/clk_pixel
+    SLICE_X8Y22          FDRE                                         r  my_pong/paddle_y_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X8Y22          FDRE (Prop_fdre_C_Q)         0.518    -0.459 r  my_pong/paddle_y_reg[1]/Q
+                         net (fo=15, routed)          1.082     0.623    my_pong/Q[1]
+    SLICE_X7Y21          LUT4 (Prop_lut4_I0_O)        0.124     0.747 r  my_pong/i__carry_i_4__4/O
+                         net (fo=1, routed)           0.000     0.747    my_pong/i__carry_i_4__4_n_0
+    SLICE_X7Y21          CARRY4 (Prop_carry4_S[1]_O[3])
+                                                      0.640     1.387 f  my_pong/paddle_y6_inferred__0/i__carry/O[3]
+                         net (fo=3, routed)           1.107     2.494    my_pong/paddle_y5[3]
+    SLICE_X9Y21          LUT6 (Prop_lut6_I2_O)        0.306     2.800 r  my_pong/paddle_y[7]_i_13/O
+                         net (fo=1, routed)           0.799     3.599    my_pong/paddle_y[7]_i_13_n_0
+    SLICE_X9Y22          LUT6 (Prop_lut6_I3_O)        0.124     3.723 f  my_pong/paddle_y[7]_i_5/O
+                         net (fo=12, routed)          0.473     4.195    my_pong/paddle_y[7]_i_5_n_0
+    SLICE_X9Y22          LUT5 (Prop_lut5_I4_O)        0.118     4.313 r  my_pong/paddle_y[7]_i_2/O
+                         net (fo=3, routed)           0.768     5.082    my_pong/paddle_y[7]_i_2_n_0
+    SLICE_X8Y20          LUT6 (Prop_lut6_I4_O)        0.326     5.408 r  my_pong/paddle_y[7]_i_1/O
+                         net (fo=4, routed)           0.339     5.747    my_pong/paddle_y[7]_i_1_n_0
+    SLICE_X8Y21          FDSE                                         r  my_pong/paddle_y_reg[3]/S
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                     13.468    13.468 r  
+    N15                                               0.000    13.468 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    13.468    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    14.838 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    16.000    mhdmicw/clk_ref_clk_wiz_0
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.221     8.779 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           1.587    10.366    mhdmicw/clk_pixel_clk_wiz_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.457 r  mhdmicw/clkout1_buf/O
+                         net (fo=93, routed)          1.438    11.895    my_pong/clk_pixel
+    SLICE_X8Y21          FDSE                                         r  my_pong/paddle_y_reg[3]/C
+                         clock pessimism              0.576    12.471    
+                         clock uncertainty           -0.168    12.303    
+    SLICE_X8Y21          FDSE (Setup_fdse_C_S)       -0.524    11.779    my_pong/paddle_y_reg[3]
+  -------------------------------------------------------------------
+                         required time                         11.779    
+                         arrival time                          -5.747    
+  -------------------------------------------------------------------
+                         slack                                  6.032    
+
+
+
+

@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1759352811" />
+    <testcase name="test_tmds" classname="test_tmds" file="/home/samhita/Downloads/lab04/sim/test_tmds.py" lineno="27" time="0.007006406784057617" sim_time_ns="1080.001" ratio_time="154144.77538721202" />
+  </testsuite>
+</testsuites>
